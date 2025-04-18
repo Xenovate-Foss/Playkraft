@@ -70,3 +70,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Font families: Poppins and Inter from Google Fonts
 - Icons: [Add your icon source] 
+
+</img src="demo.png">
