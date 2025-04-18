@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %> - <%= description %>
+    </title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/images/whtite.png" alt="<%= title %>" height="48">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <%= title %>
+                </li>
+                <li>Our Features</li>
+                <li>Plans</li>
+                <li>Status</li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="<%= panelUrl %>" class="btn btn-secondary">Panel</a>
+                <a href="<%= discordUrl %>" class="btn btn-primary">Discord</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Mobile drawer navigation -->
+    <div class="mobile-drawer">
+        <button class="drawer-close">✕</button>
+        <ul>
+            <li>
+                <%= title %>
+            </li>
+            <li>Our Features</li>
+            <li>Plans</li>
+            <li>Status</li>
+        </ul>
+        <div class="drawer-buttons">
+            <a href="<%= panelUrl %>" class="btn btn-secondary">Panel</a>
+            <a href="<%= discordUrl %>" class="btn btn-primary">Discord</a>
+        </div>
+    </div>
+
+    <!-- Overlay for mobile drawer -->
+    <div class="overlay"></div>
+
+    <!-- Main content area -->
+    <%- body %>
+
+        <!-- Node Selection Dialog -->
+        <div class="node-dialog-overlay" id="nodeDialog">
+            <div class="node-dialog">
+                <button class="node-dialog-close" id="nodeDialogClose">✕</button>
+                <div class="node-dialog-header">
+                    <h2 class="node-dialog-title">Select Server Location</h2>
+                    <p>Choose the server node that best suits your needs based on location and hardware specifications
+                    </p>
+                </div>
+                <div class="node-grid" id="nodeGrid">
+                    <!-- Node cards will be dynamically inserted here -->
+                </div>
+                <div class="node-dialog-footer">
+                    <button class="node-dialog-confirm" id="nodeDialogConfirm" disabled>Continue to Selected
+                        Node</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/images/whtite.png" alt="<%= title %>" height="48">
+                    <p>&copy; <%= new Date().getFullYear() %>
+                            <%= title %>. All Rights Reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Status</a></li>
+                            <li><a href="#">Server Setup</a></li>
+                            <li><a href="<%= discordUrl %>">Discord</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">DDoS Protection</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    
+            <script>
+                try {
+                    window.APP_CONFIG = {
+                        clientNodes: <% - JSON.stringify(typeof clientNodes !== 'undefined' ? clientNodes : []) %>,
+                        serverNodes: <% - JSON.stringify(typeof serverNodes !== 'undefined' ? serverNodes : []) %>
+    };
+  } catch (e) {
+                    console.error("Failed to load APP_CONFIG", e);
+                window.APP_CONFIG = {clientNodes: [], serverNodes: [] };
+  }
+        </script>
+
+        <script src="/js/main.js"></script>
+</body>
+
+</html>

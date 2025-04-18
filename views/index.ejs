@@ -1,0 +1,142 @@
+<!-- Hero Section -->
+<div class="hero-section-main-div">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Create Server In 5 Min. With  <%= title %></h1>
+            <p>Play with friends on high-performance dedicated servers with <%= uptime %>% uptime guarantee</p>
+            
+            <div class="server-stats">
+                <div class="stat-item">
+                    <div class="stat-number"><%= uptime %>%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><%= serversCount %>+</div>
+                    <div class="stat-label">Active Servers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><%= supportHours %></div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#pricing" class="btn btn-primary">View Plans</a>
+                <a href="<%= discordUrl %>" class="btn btn-secondary">Join Discord</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/images/steve.png" alt="Minecraft Steve">
+        </div>
+    </div>
+    <!-- Decorative particles -->
+    <div class="hero-particle" style="top: 20%; left: 10%;"></div>
+    <div class="hero-particle" style="top: 50%; left: 25%;"></div>
+    <div class="hero-particle" style="top: 30%; left: 60%;"></div>
+    <div class="hero-particle" style="top: 80%; left: 80%;"></div>
+    <div class="hero-particle" style="top: 40%; left: 90%;"></div>
+</div>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose <%= title %></h2>
+            <p>We offer the best features for your Minecraft server hosting needs</p>
+        </div>
+        
+        <div class="features-grid">
+            <% features.forEach(feature => { %>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="/images/<%= feature.icon %>" alt="<%= feature.title %>">
+                    </div>
+                    <h3><%= feature.title %></h3>
+                    <p><%= feature.description %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- Client Showcase Section -->
+<section id="clients" class="clients-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Trusted Clients</h2>
+            <p>Join these amazing Minecraft servers powered by <%= title %></p>
+        </div>
+        
+        <div class="clients-grid">
+            <% clients.forEach(client => { %>
+                <div class="client-card">
+                    <div class="client-image">
+                        <img src="/images/<%= client.image %>" alt="<%= client.name %>">
+                    </div>
+                    <div class="client-info">
+                        <h3><%= client.name %></h3>
+                        <div class="client-ip">
+                            <span class="ip-label">Server IP:</span>
+                            <span class="ip-address"><%= client.ip %></span>
+                            <button class="copy-btn" data-clipboard-text="<%= client.ip %>">Copy</button>
+                        </div>
+                        <p><%= client.description %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="pricing-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Choose Your Plan</h2>
+            <p>Affordable pricing for every need</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <% plans.forEach((plan, index) => { %>
+                <div class="pricing-card <%= index === 1 ? 'highlighted' : '' %>">
+                    <% if(index === 1) { %>
+                        <div class="popular-tag">Most Popular</div>
+                    <% } %>
+                    <h3><%= plan.name %></h3>
+                    <div class="price">
+                        <span class="amount"><%= plan.price %></span>
+                        <span class="period">/month</span>
+                    </div>
+                    <ul class="specs">
+                        <li><strong>RAM:</strong> <%= plan.ram %></li>
+                        <li><strong>Storage:</strong> <%= plan.storage %></li>
+                        <li><strong>Players:</strong> <%= plan.slots %> slots</li>
+                    </ul>
+                    <ul class="features-list">
+                        <% plan.features.forEach(feature => { %>
+                            <li><%= feature %></li>
+                        <% }); %>
+                    </ul>
+                    <button class="btn <%= index === 1 ? 'btn-primary' : 'btn-secondary' %>" onclick="showNodeDialog('<%= plan.name %>')">Select Plan</button>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- Node Selection Dialog -->
+<div class="node-dialog-overlay" id="nodeDialog">
+    <div class="node-dialog">
+        <button class="node-dialog-close" id="nodeDialogClose">✕</button>
+        <div class="node-dialog-header">
+            <h2 class="node-dialog-title">Select Server Location</h2>
+            <p>Choose the server node that best suits your needs based on location and hardware specifications</p>
+        </div>
+        <div class="node-grid" id="nodeGrid">
+            <!-- Node cards will be dynamically inserted here -->
+        </div>
+        <div class="node-dialog-footer">
+            <button class="node-dialog-confirm" id="nodeDialogConfirm" disabled>Continue to Selected Node</button>
+        </div>
+    </div>
+</div> 
