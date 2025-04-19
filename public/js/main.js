@@ -89,29 +89,38 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedPlan = null;
 
     // Get node data from the server-provided data or use fallback
+
+    // catch () {
+    //     console.error("Failed to load APP_CONFIG", e);
+    //     window.APP_CONFIG = { serverNodes: [] };
+    // }
+
+    
     const getNodeData = function () {
+        
         if (
-          window.APP_CONFIG &&
-          Array.isArray(window.APP_CONFIG.clientNodes) &&
-          window.APP_CONFIG.clientNodes.length > 0
+            window.APP_CONFIG &&
+            Array.isArray(window.APP_CONFIG.serverNodes) &&
+            window.APP_CONFIG.serverNodes.length > 0
         ) {
-          console.log('Using client nodes from APP_CONFIG');
-          return window.APP_CONFIG.clientNodes;
+            console.log('Using client nodes from APP_CONFIG');
+            return window.APP_CONFIG.serverNodes;
         }
-      
-        console.warn('Using fallback node data');
+
+        console.warn('Error loading server nodes. Using fallback data.');
         return [
-            { 
-                id: '404', 
-                name: '404', 
-                location: '404', 
-                specs: '404', 
+            // Config This
+            {
+                id: '404',
+                name: '404',
+                location: '404',
+                specs: '404',
                 flag: '404',
-                url: '404' 
+                url: '404'
             }
         ];
     };
-    
+
 
     // Make showNodeDialog globally available
     window.showNodeDialog = function (planName) {

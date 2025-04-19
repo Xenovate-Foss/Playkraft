@@ -7,7 +7,7 @@
     <title>
         <%= title %> - <%= description %>
     </title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
 
@@ -118,19 +118,10 @@
         </footer>
 
     
-            <script>
-                try {
-                    window.APP_CONFIG = {
-                        clientNodes: <% - JSON.stringify(typeof clientNodes !== 'undefined' ? clientNodes : []) %>,
-                        serverNodes: <% - JSON.stringify(typeof serverNodes !== 'undefined' ? serverNodes : []) %>
-    };
-  } catch (e) {
-                    console.error("Failed to load APP_CONFIG", e);
-                window.APP_CONFIG = {clientNodes: [], serverNodes: [] };
-  }
-        </script>
 
+        <script>
+            window.SERVER_NODES = <%- JSON.stringify(serverNodes) %>;
+        </script>
         <script src="/js/main.js"></script>
 </body>
-
 </html>
