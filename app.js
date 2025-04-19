@@ -36,14 +36,12 @@ app.listen(PORT, () => {
 ██║     ███████╗██║  ██║   ██║       ██║  ██╗██║  ██║██║  ██║██║        ██║   
 ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝       ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝   
 
-     PlayKraft Hosting Templete
-     Buyed By : ${config.app.name}
-     ---------------------------
-         Thank For Buying!
- ${config.app.name} : ${config.app.description}
+PlayKraft Hosting Templete
+Buyed By : ${config.app.name}
+---------------------------
+Thank For Buying!
 
-  
-      `);
-  console.log(`Port :  ${PORT} , Mode : ${config.server.env} mode`);
-  console.log(`Visit http://localhost:${PORT} to view the application`);
+${config.app.name} : ${config.app.description}
+ 
+Port :  ${PORT} | Mode : ${config.server.env} mode`);
 }); 

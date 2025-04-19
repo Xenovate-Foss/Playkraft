@@ -90,35 +90,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Get node data from the server-provided data or use fallback
 
-    // catch () {
-    //     console.error("Failed to load APP_CONFIG", e);
-    //     window.APP_CONFIG = { serverNodes: [] };
-    // }
-
-    
+   
     const getNodeData = function () {
-        
-        if (
-            window.APP_CONFIG &&
-            Array.isArray(window.APP_CONFIG.serverNodes) &&
-            window.APP_CONFIG.serverNodes.length > 0
-        ) {
-            console.log('Using client nodes from APP_CONFIG');
-            return window.APP_CONFIG.serverNodes;
-        }
 
-        console.warn('Error loading server nodes. Using fallback data.');
-        return [
-            // Config This
-            {
-                id: '404',
-                name: '404',
-                location: '404',
-                specs: '404',
-                flag: '404',
-                url: '404'
-            }
-        ];
+        console.Log('loaded server nodes');
+        return window.SERVER_NODES;
     };
 
 

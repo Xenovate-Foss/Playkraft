@@ -111,14 +111,14 @@ module.exports = {
 
   // Client-side formatted node data
   serverNodes: [
-    { 
-      id: 'node1', 
-      name: 'India (Mumbai)', 
-      location: 'Mumbai, India', 
-      specs: 'AMD Ryzen 9 5950X, 128GB DDR4, NVMe SSD', 
-      flag: '🇺🇸', 
-      url: 'https://panel.playkraft.com/node1' 
-    },
+    // { 
+    //   id: 'node1', 
+    //   name: 'Name Of Node', 
+    //   location: 'Location Of Node', 
+    //   specs: 'CPU, RAM, SSD', 
+    //   flag: 'Emoji', 
+    //   url: 'Direct link Of Billing Panel' 
+    // },
     { 
       id: 'node2', 
       name: 'US West (Los Angeles)', 
