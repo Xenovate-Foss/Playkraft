@@ -12,11 +12,16 @@ A modern Node.js web application for a Minecraft server hosting business built w
 
 ## Installation
 
-1. Buyed This Product
-2. Install dependencies: `npm install`
-3. Create a `.env` file with required variables
-4. Start development server: `npm run dev`
-5. For production: `npm start`
+
+```bash
+git clone https://github.com/Xenovate-Foss/Playkraft.git
+```
+```bash
+npm run setup
+```
+That's It!
+
+And Setup Node via config/config.js
 
 ## Project Structure
 
@@ -43,23 +48,25 @@ playkraft-hosting/
 
 ## Configuration
 
-The application uses a centralized configuration system in `config/config.js` that includes:
+The application uses a centralised configuration system in `config/config.js` that includes:
 
 - Server settings (port, environment)
 - Application information (name, description)
 - External URLs (Discord, panel)
 - Service metrics (uptime, server count)
 - Feature data (server features, client showcases, pricing plans)
-- Database configuration (for future use)
-- Feature flags
 
-You can customize these settings by modifying the config file or updating environment variables.
+
+You can customise these settings by modifying the config file or updating environment variables.
+
+
+# Preview
+<img src="demo.png">
+
 
 ## Customization
 
-- Replace `whtite.png` and `logo.png` with your own logos
-- Replace `black.png` with your own client showcase images
-- Customize feature images by replacing `features.png`
+- Replace icons
 - Modify pricing plans in `config/config.js`
 
 ## License
@@ -69,7 +76,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Acknowledgements
 
 - Font families: Poppins and Inter from Google Fonts
-- Icons: [Add your icon source] 
+- Xerin & Vspcoderz 
 
-# Preview
-<img src="demo.png">
